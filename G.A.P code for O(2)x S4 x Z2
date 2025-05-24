@@ -1,0 +1,26 @@
+LoadPackage ( "equideg" );
+
+# generate O(2) , S4 and Z2
+o2 := OrthogonalGroupOverReal( 2 );
+s4 := SymmetricGroup( 4 );
+z2 := pCyclicGroup( 2 );
+
+# generate S4 x Z2
+g1 := DirectProduct ( s4 , z2 );
+
+# set names for g1
+ccsg1 := ConjugacyClassesSubgroups (g1 ); SetCCSsAbbrv (g1 , [ "Z1", "Z2", "D1z ", "D1", "Z2m ", "Z1p ", "Z3", "Z2p ", 
+"V4m ", "D2", "Z4", "V4", " D2z ", " Z4d ", " D2d ", "D1p ", "Z3p ", "D3", "D3z ", "V4p ", "D4d ", "Z4p ", "D4", "D2p ", "D4z ", " D4hd ", "D3p ", "A4", "D4p ", "S4", "A4p ", "S4m ", "S4p " ]); 
+
+# generate the group G=O(2) xS4xZ2 
+G := DirectProduct ( o2 , g1 ); 
+ccs := ConjugacyClassesSubgroups ( G ); 
+
+# Character Table for S4xZ2 
+tbl := CharacterTable ( g1 );
+Display ( tbl ); 
+
+# Compute basic degree and maximal orbit types for each isotypic decomposition
+# notice V0 in paper corresponds to X1 in tbl1 above, V4--X6, V7--X7, V8--X10, V9--X8, accordingly. 
+bas8:=BasicDegree(Irr(G)[1,8]); #(find basic degree for V9)
+max8:=MaximalOrbtTypes(Irr(G)[1,8]);
