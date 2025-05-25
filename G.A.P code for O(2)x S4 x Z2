@@ -23,4 +23,4 @@ Display ( tbl );
 # Compute basic degree and maximal orbit types for each isotypic decomposition
 # notice V0 in paper corresponds to X1 in tbl1 above, V4--X6, V7--X7, V8--X10, V9--X8, accordingly. 
 bas8:=BasicDegree(Irr(G)[1,8]); #(find basic degree for V9)
-max8:=MaximalOrbtTypes(Irr(G)[1,8]);
+max8:=MaximalOrbitTypes(Irr(G)[1,8]);
